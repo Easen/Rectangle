@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import os.log
 
 class WindowManager {
 
@@ -99,6 +100,7 @@ class WindowManager {
 
         let resultingRect = frontmostWindowElement.rectOfElement()
         windowHistory.lastRectangleActions[windowId] = RectangleAction(action: calcResult.resultingAction, rect: resultingRect)
+        os_log("%@: display: %@, calculatedRect: %@, resultRect: %@", type: .error, action.name, visibleFrameOfDestinationScreen.debugDescription, newNormalizedRect.debugDescription, resultingRect.debugDescription)
     }
 }
 
